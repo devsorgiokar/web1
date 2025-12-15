@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Deva Builders</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f4f4f4}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#2c3e50,#3498db);
+  color:white;
+  padding:45px;
+  text-align:center;
+}
+
+/* NAV */
+nav{
+  background:#111;
+  padding:15px;
+  text-align:center;
+}
+nav a{
+  color:white;
+  margin:15px;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+nav a:hover{color:#f1c40f}
+
+/* PAGE SYSTEM */
+.page{
+  display:none;
+  padding:60px 20px;
+  text-align:center;
+  animation:fade 0.6s;
+}
+.page.active{display:block}
+
+@keyframes fade{
+  from{opacity:0;transform:scale(0.9)}
+  to{opacity:1;transform:scale(1)}
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.box{
+  background:white;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 0 15px rgba(0,0,0,0.1);
+  cursor:pointer;
+  transition:0.4s;
+}
+.box:hover{
+  background:#3498db;
+  color:white;
+  transform:scale(1.05);
+}
+
+/* BUTTON */
+button{
+  padding:10px 20px;
+  background:#3498db;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+button:hover{background:#2c3e50}
+
+/* CONTACT */
+.contact{background:#2c3e50;color:white}
+
+/* FORM */
+form{
+  max-width:400px;
+  margin:30px auto;
+  background:white;
+  padding:25px;
+  border-radius:10px;
+}
+input,textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+</style>
+ <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<h1>Deva & Yuvraj Builders</h1>
+<p>Builder & Construction Material Supply</p>
+</header>
+
+<nav>
+<a onclick="openPage('home')">Home</a>
+<a onclick="openPage('services')">Services</a>
+<a onclick="openPage('materials')">Materials</a>
+<a onclick="openPage('contact')">Contact</a>
+</nav>
+
+<!-- HOME -->
+<div id="home" class="page active">
+<h2>Welcome</h2>
+<p>Quality construction & best market material prices</p>
+</div>
+
+<!-- SERVICES -->
+<div id="services" class="page">
+<h2>Our Services</h2>
+<div class="grid">
+  <div class="box">🏗 Building Construction</div>
+  <div class="box">🏠 House Renovation</div>
+  <div class="box">🛠 Contractor Services</div>
+</div>
+</div>
+
+<!-- MATERIALS -->
+<div id="materials" class="page">
+<h2>Material Supply</h2>
+<div class="grid">
+  <div class="box" onclick="openPage('cement')">🏗 Cement</div>
+  <div class="box" onclick="openPage('bricks')">🧱 Bricks</div>
+  <div class="box" onclick="openPage('sand')">🏖 Sand</div>
+  <div class="box" onclick="openPage('steel')">🔩 Steel</div>
+</div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="page contact">
+<h2>Contact Us</h2>
+<p>📞 9699069382</p>
+
+
+<form onsubmit="alert('Query Submitted Successfully');return false;">
+<input placeholder="Your Name" required>
+<input placeholder="Phone Number" required>
+<textarea placeholder="Your Query"></textarea>
+<button>Submit</button>
+</form>
+</div>
+
+<!-- PRICE PAGES -->
+
+<div id="cement" class="page">
+<h2>Cement Price</h2>
+<p><b>₹380 – ₹420 per bag (50kg)</b></p>
+<p>*Price varies by brand & location*</p>
+<p>📞 Call for today’s best rate</p>
+<button onclick="openPage('materials')">⬅ Back</button>
+</div>
+
+<div id="bricks" class="page">
+<h2>Brick Price</h2>
+<p><b>₹8 – ₹11 per brick</b></p>
+<p>*Red / Fly ash bricks*</p>
+<p>📞 Call for bulk discount</p>
+<button onclick="openPage('materials')">⬅ Back</button>
+</div>
+
+<div id="sand" class="page">
+<h2>Sand Price</h2>
+<p><b>₹4,500 – ₹6,000 per brass</b></p>
+<p>*River / M-sand available*</p>
+<p>🚚 Transport included</p>
+<button onclick="openPage('materials')">⬅ Back</button>
+</div>
+
+<div id="steel" class="page">
+<h2>Steel (TMT) Price</h2>
+<p><b>₹55,000 – ₹62,000 per ton</b></p>
+<p>*Fe 500 / Fe 550 grade*</p>
+<p>📞 Call for today’s market price</p>
+<button onclick="openPage('materials')">⬅ Back</button>
+</div>
+
+<script>
+function openPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
